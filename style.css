@@ -17,14 +17,18 @@ html{
 .block{
     width: 100px;
     height: 100px;
-    background-color: rgb(48, 31, 31);
+    background-color: rgb(40, 46, 51);
 }
 
 body img{
     width: 70vw;
+    
 }
 
 button img{
     width: 90px;
     height: 90px;
+}
+.button1{
+    font-size: 20px;
 }

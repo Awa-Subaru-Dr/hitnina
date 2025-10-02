@@ -2,10 +2,17 @@ let score=0;
 let lvl=1;
 let tt=1840;
 let bs=[];
+let g,g2;
+let time=0;
 for(let i=0;i<25;i++){
     bs[i]=0;
 }
 const dnlm = new Audio('骂人.wav');
+const bgm = new Audio('咸菜.mp3');
+bgm.loop=true;
+bgm.volume=0.7;
+bgm.preload = 'auto';
+let playing = true;
 dnlm.preload = 'auto';
 
 function spawn(){
@@ -23,17 +30,29 @@ function spawn(){
 }
 
 function start(){
-    
-    setInterval(() => {
+    bgm.play();
+    g = setInterval(() => {
         spawn();
     }, 1010-lvl*10);
+    g2=setInterval(() => {
+        time+=1;
+        let t=document.getElementById("time");
+        t.innerText=time/100+"s";
+        if(score>=103)win();
+    }, 10);
 }
 
-
+function win(){
+    let title=document.getElementById("title");
+    title.innerText="你赢了！"
+    clearInterval(g);
+    clearInterval(g2);
+    alert("你赢了!,总耗时:"+time/100+"s");
+}
 
 function hit(id){
     if(bs[id-1]==1){bs[id-1]=2;score++;lvl=score%10;};
-    if(bs[id-1]==3){bs[id-1]=4;score--;lvl=score%10;dnlm.play();};
+    if(bs[id-1]==3){bs[id-1]=4;score-=score*0.5;lvl=score%10;dnlm.play();};
     Updata();
     setTimeout(() => {
         if(bs[id-1]==2)bs[id-1]=0;
@@ -77,4 +96,9 @@ function Updata() {
             }
         }
     }
+}
+
+function music(){  
+    if(playing){bgm.volume=0;playing=false;}
+    else {bgm.volume=0.7;playing=true;}
 }
