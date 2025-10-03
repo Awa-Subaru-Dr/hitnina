@@ -15,12 +15,16 @@ bgm.preload = 'auto';
 let playing = true;
 dnlm.preload = 'auto';
 function Load(){
-    let img=document.getElementById("i1");
-    img.src="嘿嘿.png";
-    img.src="哭.png";
-    img.src="略.png";
-    img.src="脸红.png";
-    img.src="棍母.png";
+    this.img1=document.createElement("img");
+    this.img2=document.createElement("img");
+    this.img3=document.createElement("img");
+    this.img4=document.createElement("img");
+    this.img5=document.createElement("img");
+    img1.src="嘿嘿.png";
+    img2.src="哭.png";
+    img3.src="略.png";
+    img4.src="脸红.png";
+    img5.src="棍母.png";
 }
 
 function spawn(){
