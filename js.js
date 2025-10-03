@@ -14,7 +14,7 @@ bgm.volume=0.7;
 bgm.preload = 'auto';
 let playing = true;
 dnlm.preload = 'auto';
-{
+function Load(){
     let img=document.getElementById("i1");
     img.src="棍母.png";
     img.src="嘿嘿.png";
