@@ -1,5 +1,5 @@
 let score=0;
-let lvl=1;
+let lvl=0;
 let tt=1840;
 let bs=[];
 let g,g2;
@@ -14,13 +14,25 @@ bgm.volume=0.7;
 bgm.preload = 'auto';
 let playing = true;
 dnlm.preload = 'auto';
+{
+    let img=document.getElementById("i1");
+    img.src="棍母.png";
+    img.src="嘿嘿.png";
+    img.src="哭.png";
+    img.src="略.png";
+    img.src="脸红.png";
+}
 
 function spawn(){
     let r=Math.floor(Math.random()*25);
     while(bs[r]!=0)r=Math.floor(Math.random()*25);
     let r2=Math.floor(Math.random()*4);
-    let t=tt>800?tt-lvl*40:800;
-    bs[r]=lvl<5?1:r2>2?3:1;
+    let t=tt>500?tt-lvl*40:500;
+    bs[r]=
+        lvl<5?
+            1:
+            r2>2?
+                3:1;
     Updata();
     setTimeout(() => {
         if(bs[r]==1)bs[r]=0;
@@ -51,8 +63,8 @@ function win(){
 }
 
 function hit(id){
-    if(bs[id-1]==1){bs[id-1]=2;score++;lvl=score%10;};
-    if(bs[id-1]==3){bs[id-1]=4;score-=score*0.5;lvl=score%10;dnlm.play();};
+    if(bs[id-1]==1){bs[id-1]=2;score++;lvl=score/10;};
+    if(bs[id-1]==3){bs[id-1]=4;score-=score*0.5;lvl=score/10;dnlm.play();};
     Updata();
     setTimeout(() => {
         if(bs[id-1]==2)bs[id-1]=0;
