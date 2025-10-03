@@ -16,11 +16,11 @@ let playing = true;
 dnlm.preload = 'auto';
 function Load(){
     let img=document.getElementById("i1");
-    img.src="棍母.png";
     img.src="嘿嘿.png";
     img.src="哭.png";
     img.src="略.png";
     img.src="脸红.png";
+    img.src="棍母.png";
 }
 
 function spawn(){
